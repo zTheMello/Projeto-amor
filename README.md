@@ -13,7 +13,7 @@ Basta abrir o arquivo `index.html` (ou o arquivo principal) no navegador.
 ## 🛠️ Tecnologias
 - HTML  
 - CSS  
-- JavaScript (se tiver usado)  
+- JavaScript  
 
 ---
 
