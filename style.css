@@ -1,0 +1,174 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fundo romântico */
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(black, #a86668, #fad0c4);
+  font-family: 'Segoe Script', cursive, sans-serif;
+  text-align: center;
+  overflow-x: hidden;
+  color: #fff;
+  user-select: none;
+}
+
+h1 {
+  margin-bottom: 20px;
+  font-size: 2.5rem;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Coração principal */
+.heart {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  background: #ff004f;
+  transform: rotate(-45deg);
+  cursor: pointer;
+  animation: pulse 1.5s infinite;
+  margin: 40px 0 30px 0; /* margem maior em cima e embaixo */
+  box-shadow: 0 0 20px 8px rgba(255, 0, 80, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.heart:hover {
+  transform: rotate(-45deg) scale(1.1);
+  box-shadow: 0 0 30px 12px rgba(255, 0, 80, 0.8);
+}
+
+.heart::before,
+.heart::after {
+  content: "";
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: #ff004f;
+  border-radius: 50%;
+}
+
+.heart::before {
+  top: -75px;
+  left: 0;
+}
+
+.heart::after {
+  left: 75px;
+  top: 0;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1) rotate(-45deg);
+  }
+  50% {
+    transform: scale(1.1) rotate(-45deg);
+  }
+  100% {
+    transform: scale(1) rotate(-45deg);
+  }
+}
+
+/* Conteúdo escondido */
+.conteudo {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 1.5s ease-in-out forwards;
+  max-width: 400px;
+  padding: 0 15px;
+}
+
+.foto-container {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  margin-bottom: 15px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  border: 4px solid #fff;
+}
+
+.foto-container img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.foto-container img.active {
+  opacity: 1;
+  position: relative;
+}
+
+.dedicatoria {
+  font-size: 1.3rem;
+  color: #fff;
+  line-height: 1.5;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  font-weight: 600;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Container dos corações flutuantes */
+.hearts-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  pointer-events: none; /* não atrapalha cliques */
+  z-index: -1;
+}
+
+/* Corações flutuantes */
+.heart-float {
+  position: absolute;
+  color: rgba(255, 0, 80, 0.6);
+  font-size: 20px;
+  animation: floatUp linear forwards;
+  user-select: none;
+  text-shadow: 0 0 8px rgba(255, 0, 80, 0.7);
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(0.8);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+footer {
+  margin-top: 30px;
+  font-size: 1rem;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  font-weight: 600;
+}
